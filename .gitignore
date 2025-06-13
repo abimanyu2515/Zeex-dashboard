@@ -23,4 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 
-.venv
+# Ignore Python virtual environment
+.venv/
+
+# Ignore Python cache
+__pycache__/
+
+# Ignore Node.js dependencies and Vite deps
+node_modules/
+node_modules/.vite/
