@@ -4,4 +4,8 @@ sqlalchemy
 psycopg2-binary
 passlib[bcrypt]
 python-jose[cryptography]
+pip install pyjwt
 python-dotenv
+pip install pydantic[email]
+pip install python-multipart
+pip install "fastapi[standard]"
