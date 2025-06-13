@@ -25,6 +25,7 @@ dist-ssr
 
 # Ignore Python virtual environment
 .venv/
+.env
 
 # Ignore Python cache
 __pycache__/
