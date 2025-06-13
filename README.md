@@ -24,9 +24,9 @@ pip install -r requirements.txt
 
 ### CREATE A .env file inside your backend directory
 
-SECRET_KEY=your_secret_key_here
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
+- SECRET_KEY=your_secret_key_here
+- ALGORITHM=HS256
+- ACCESS_TOKEN_EXPIRE_MINUTES=30
 
 ```bash
 uvicorn main:app --reload
