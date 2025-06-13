@@ -28,6 +28,12 @@ pip install -r requirements.txt
 - ALGORITHM=HS256
 - ACCESS_TOKEN_EXPIRE_MINUTES=30
 
+To get your own secret key you need to install OPENSSL and run the below command
+
+```bash
+openssl rand -hex 32
+```
+To run the app
 ```bash
 uvicorn main:app --reload
 ```
