@@ -2,14 +2,13 @@ from fastapi import HTTPException, Depends
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordBearer
-from datetime import datetime, timedelta, timezone
 import jwt
 from jwt.exceptions import InvalidTokenError
 
-from . import models, schemas, database  # Make sure this path is correct
+from . import models, schemas, database
 
 
-SECRET_KEY = "your-secret-key"  # Replace with env var in production
+SECRET_KEY = "3f7a242e9dc04114faaf2d0e7f5a0693ef21b420b2b7fbf42b2c490665ca8b41"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
@@ -26,15 +25,22 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
 def create_user(db: Session, user: schemas.UserCreate):
-    db_user = models.User(
+    db_user = db.query(models.User).filter(models.User.email == user.email).first()
+    
+    if db_user:
+        raise HTTPException(status_code=400, detail="User Exists")
+    
+    else:
+        db_user = models.User(
         name=user.name,
         email=user.email,
         password=get_pass(user.password)
-    )
-    db.add(db_user)
-    db.commit()
-    db.refresh(db_user)
-    return db_user
+        )
+
+        db.add(db_user)
+        db.commit()
+        db.refresh(db_user)
+        return db_user
 
 def get_db():
     db = database.SessionLocal()
@@ -49,14 +55,6 @@ def login_check(db: Session, user: schemas.UserLogin):
     if not db_user or not verify_pass(user.password, db_user.password):
         raise HTTPException(status_code=400, detail="Invalid credentials")
     return db_user
-
-
-def create_access_token(data: dict, expires_delta: timedelta = None):
-    to_encode = data.copy()
-    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
-    to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-    return encoded_jwt
 
 
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):

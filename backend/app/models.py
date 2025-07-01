@@ -3,7 +3,9 @@ from .database import Base
 
 class User(Base):
     __tablename__ = 'users'
+
     id = Column(Integer, index=True, primary_key=True)
     email = Column(String, unique=True, nullable=False, index=True)
     name = Column(String, nullable=False)
     password = Column(String, nullable=False)
+    role = Column(String, default='viewer') # default role for anyone who signs up
