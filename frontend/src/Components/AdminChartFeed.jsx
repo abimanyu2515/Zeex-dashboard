@@ -10,11 +10,12 @@ const ChartFeed = () => {
         
         {/* ANALOG CHART [ALERTS GENERATED] */}
         <div className='col-span-2 rounded-lg shadow-xl/30 shadow-black bg-white max-:w-[360px] w-full h-[300px]'>
-          <Line_Chart />
+        <h1 className='font-semibold m-5'>ALERTS GENERATED</h1>
+          <Line_Chart isInGrid={true} />
         </div>
 
         {/* PIE CHART [USERS DATA] */}
-        <div className="max-lg:col-span-2 rounded-lg shadow-xl/30 p-2 shadow-black bg-white w-full">
+        <div className="max-lg:col-span-2 rounded-lg shadow-xl/30 p-2 max-sm:h-[300px] shadow-black bg-white w-full">
           <h1 className='font-semibold m-3.5'>USERS</h1>
           <Pie_Chart isInGrid={true} />
         </div>
@@ -24,7 +25,7 @@ const ChartFeed = () => {
 
         {/* BAR CHART [BUILDING ALERTS] */}
         <div className='col-span-2 w-full pt-4 pr-4 rounded-lg shadow-xl/30 shadow-black bg-white '>
-          <Bar_Chart />
+          <Bar_Chart isInGrid={true} />
         </div>
 
         {/* ALERTS TABLE [RECENT ALERTS] */}

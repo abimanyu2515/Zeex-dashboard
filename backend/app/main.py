@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from fastapi import FastAPI, Depends, Path
+=======
+from fastapi import FastAPI, Depends, HTTPException
+>>>>>>> fc3b24a (Your message about what you changed)
 from sqlalchemy.orm import Session
 from app import models, schemas, database, auth
 from fastapi.middleware.cors import CORSMiddleware
@@ -30,15 +34,48 @@ def signup(user: schemas.UserCreate, db: Session=Depends(get_db)):
     return auth.create_user(db, user)
 
 
+<<<<<<< HEAD
 @app.post('/token')
+=======
+@app.post('/admin/create-user')
+def admin_create(user: schemas.AdminUserCreate, db: Session=Depends(get_db)):
+    return auth.admin_create_user(db, user)
+
+
+@app.post('/signin')
+>>>>>>> fc3b24a (Your message about what you changed)
 def login_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     user = auth.login_check(db, schemas.UserLogin(email = form_data.username, password = form_data.password))
     access_token = create_access_token(data={'sub' : str(user.id), 'email' : user.email, 'name' : user.name, "role": user.role})
     return {'access_token' : access_token, 'token_type' : 'bearer'}
 
 
+<<<<<<< HEAD
 @app.get("/protected")
 def read_protected(user=Depends(auth.get_current_user)):
     return {"message": f"Welcome, {user.name}!"}
 
 
+=======
+@app.get('/admin/get_all_users')
+def get_the_users(db: Session = Depends(get_db), admin = Depends(auth.get_current_user)):
+    return db.query(models.User).all()
+
+
+@app.put('/admin/update/{user_id}')
+def update_pending_users(user_id: int, status: str, db: Session = Depends(get_db), admin =  Depends(auth.get_current_admin)):
+    if status not in ['approved', 'pending', 'rejected']:
+        raise HTTPException(status_code=400, detail='invlaid status')
+    user = auth.update_user_status(db, user_id, status)
+    return {'message': f'User status updated to {status}', 'Users': user}
+
+
+@app.get('/admin/pending-users')
+def get_pending_users(db: Session=Depends(get_db), admin = Depends(auth.get_current_admin)):    
+    return db.query(models.User).filter(models.User.status == 'pending').all()
+
+
+@app.get("/protected")
+def read_protected(user=Depends(auth.get_current_user)):
+    return {"message": f"Welcome, {user.name}!"}
+>>>>>>> fc3b24a (Your message about what you changed)

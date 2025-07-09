@@ -2,26 +2,19 @@ import { Outlet } from "react-router-dom"
 import AdminSideBar from "../Components/AdminSideBar"
 import { useState } from "react"
 import Header from "../Components/Header"
+import SideBar from "../Components/UserSideBar"
 
 
 const AdminLayout = () => {
-<<<<<<< HEAD
-    const [isOpen, setIsOpen] = useState(false)
-=======
     const [isOpen, setIsOpen] = useState(true)
->>>>>>> fc3b24a (Your message about what you changed)
 
   return (
     <div className="flex">
         <div className="fixed h-screen z-50"> 
-            <AdminSideBar isOpen={isOpen} setIsOpen={setIsOpen} />
+            <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
 
-<<<<<<< HEAD
         <div className={`${isOpen ? 'ml-60' : 'ml-16'} flex-1 min-h-screen p-3 bg-[#F5F5F5] transition-all duration-200`}>
-=======
-        <div className={`${isOpen ? 'ml-60' : 'ml-16'} max-sm:ml-0 flex-1 min-h-screen p-3 bg-[#F5F5F5] transition-all duration-200`}>
->>>>>>> fc3b24a (Your message about what you changed)
           <Header />
           <Outlet />
         </div>

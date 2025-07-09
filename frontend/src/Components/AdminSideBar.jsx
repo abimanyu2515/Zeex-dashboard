@@ -15,6 +15,10 @@ import {
       Contact,
 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
+<<<<<<< HEAD
+=======
+import { useState, useEffect } from "react";
+>>>>>>> fc3b24a (Your message about what you changed)
 
 const navGroups = [
     {
@@ -28,7 +32,11 @@ const navGroups = [
         title: 'Users',
         items: [
             {label: 'Add Users', icon: <UserPlus />, path: '/admin/add-users'},
+<<<<<<< HEAD
             {label: 'Users Information', icon: <Contact />, path: '/admin/users-info'},
+=======
+            {label: 'Users Information', icon: <Contact />, path: '/admin/users-info', showNotification: true},
+>>>>>>> fc3b24a (Your message about what you changed)
             {label: 'Users Chart', icon: <ChartPie />, path: '/admin/users-manage'}
         ]
     },
@@ -64,21 +72,74 @@ const AdminSideBar = ({isOpen, setIsOpen}) => {
   const user = JSON.parse(localStorage.getItem('user'))
   const navigate = useNavigate()
   const location = useLocation()
+<<<<<<< HEAD
+=======
+  const [hasPendingUsers, setHasPendingUsers] = useState(false)
+  const token = localStorage.getItem('token')
+
+  // Check for pending users
+  const checkPendingUsers = async () => {
+    try {
+      const res = await fetch('http://localhost:8000/admin/pending-users', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+      })
+      
+      if (res.ok) {
+        const data = await res.json()
+        setHasPendingUsers(data.length > 0)
+      }
+    } catch (err) {
+      console.log('Error checking pending users:', err)
+    }
+  }
+
+  useEffect(() => {
+    // Check for pending users on component mount
+    checkPendingUsers()
+    
+    // Set up interval to check every 30 seconds
+    const interval = setInterval(checkPendingUsers, 30000)
+    
+    return () => clearInterval(interval)
+  }, [token])
+>>>>>>> fc3b24a (Your message about what you changed)
 
   const SidebarSection = ({title, items}) => {
     return(
         <div>
         {isOpen && <h3 className="my-2 text-orange-600">{title}</h3>}
+<<<<<<< HEAD
         {items.map(({icon, label, path}) =>{
             const isActive = location.pathname === path
             return(
                 <div className={`flex items-center gap-3 cursor-pointer p-2 my-2 rounded-md text-sm text-blue-700 hover:bg-blue-100 hover:font-bold transition-colors duration-75 ${isActive ? 'bg-blue-100 font-semibold' : ''} ${!isOpen ? 'justify-center' : ''}`}
+=======
+        {items.map(({icon, label, path, showNotification}) =>{
+            const isActive = location.pathname === path
+            const showDot = showNotification && hasPendingUsers
+            
+            return(
+                <div className={`flex items-center gap-3 cursor-pointer p-2 my-2 rounded-md text-sm text-blue-700 hover:bg-blue-100 hover:font-bold transition-colors duration-75 ${isActive ? 'bg-blue-100 font-semibold' : ''} ${!isOpen ? 'justify-center' : ''} relative`}
+>>>>>>> fc3b24a (Your message about what you changed)
                 key={path}
                 title={!isOpen ? label : ''}
                 onClick={() => navigate(path)}
                 >
                         {icon}
                         {isOpen && <span>{label}</span>}
+<<<<<<< HEAD
+=======
+                        
+                        {/* Notification dot */}
+                        {showDot && (
+                            <div className={`absolute w-2 h-2 bg-red-500 rounded-full ${isOpen ? 'right-2 top-2' : 'right-1 top-1'}`}>
+                                <div className="w-2 h-2 bg-red-500 rounded-full animate-ping absolute"></div>
+                            </div>
+                        )}
+>>>>>>> fc3b24a (Your message about what you changed)
                 </div>
             )
         })}
@@ -87,7 +148,11 @@ const AdminSideBar = ({isOpen, setIsOpen}) => {
   }
 
   return (
+<<<<<<< HEAD
     <div className={`top-0 left-0 flex flex-col h-screen shadow transition-all ease-in-out duration-200 ${isOpen ? 'w-60 bg-white' : 'w-16'}`}>
+=======
+    <div className={`top-0 left-0 flex flex-col h-screen shadow max-sm:hidden transition-all ease-in-out duration-200 ${isOpen ? 'w-60 bg-white' : 'w-16'}`}>
+>>>>>>> fc3b24a (Your message about what you changed)
         <div className={`${isOpen ? 'ml-2 mt-4' : 'my-6 ml-3.5'} transition-all ease-in-out`}>
             <button onClick={() => setIsOpen(!isOpen)} className='p-1 rounded-md hover:cursor-pointer text-red-700 hover:bg-red-700 hover:text-white'>
                 {isOpen ? <PanelLeftClose /> : <PanelLeftOpen />}

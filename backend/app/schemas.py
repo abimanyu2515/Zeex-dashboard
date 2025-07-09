@@ -15,12 +15,35 @@ class UserLogin(BaseModel):
 class UserOut(BaseModel):
     id: int
     name: str
+<<<<<<< HEAD
     email: str
     role: str
+=======
+    email: EmailStr
+    role: str
+    status: str
+    is_active: bool
+
+    
+>>>>>>> fc3b24a (Your message about what you changed)
     class Config:
         orm_mode = True
 
 
+<<<<<<< HEAD
+=======
+class AdminUserCreate(BaseModel):
+    name: str
+    email: EmailStr
+    password: str
+    role: str
+
+
+class Status_update(BaseModel):
+    status: str
+
+
+>>>>>>> fc3b24a (Your message about what you changed)
 class Token(BaseModel):
     access_token: str
     token_type: str

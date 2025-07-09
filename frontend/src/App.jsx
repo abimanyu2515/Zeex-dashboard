@@ -19,6 +19,10 @@ import AccumalatedAlerts from './pages/AccumalatedAlerts'
 import BuildingAlerts from './pages/BuildingAlerts'
 import GeoAlerts from './pages/GeoAlerts'
 import UserInfo from './pages/UserInfo'
+<<<<<<< HEAD
+=======
+import UserLayout from './layouts/UserLayout'
+>>>>>>> fc3b24a (Your message about what you changed)
 
 function App() {
   return (
@@ -44,11 +48,30 @@ function App() {
         <Route path='geo-alerts' element={<GeoAlerts />} />
       </Route>
 
+<<<<<<< HEAD
       <Route path="/user/dashboard" element={
         <ProtectRoute allowedRoles={['admin', 'viewer']}>
           <UserDashboard />
         </ProtectRoute>
       } />
+=======
+      <Route path="/user" element={
+        <ProtectRoute allowedRoles={['admin', 'viewer']}>
+          <UserLayout />
+        </ProtectRoute>
+      }>
+        <Route path="dashboard" element={<UserDashboard />} />
+        <Route path='users-manage' element={<UsersChart />} />
+        <Route path='cam-directory' element={<CamDirectory />} />
+        <Route path='manage-files' element={<VideoFiles />} />
+        <Route path='invoices' element={<Invoices />} />
+        <Route path='calendar' element={<Calendar />} />
+        <Route path='faqs' element={<Faqs />} />
+        <Route path='accumalated-alerts' element={<AccumalatedAlerts />} />
+        <Route path='building-alerts' element={<BuildingAlerts />} />
+        <Route path='geo-alerts' element={<GeoAlerts />} />
+      </Route>
+>>>>>>> fc3b24a (Your message about what you changed)
 
       <Route path="*" element={<NotAuthorized />} />
     </Routes>

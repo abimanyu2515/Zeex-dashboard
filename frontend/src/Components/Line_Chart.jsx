@@ -17,12 +17,20 @@ const chartData = [
   {month: 'Dec', Arson: 2, Autoaccident: 3, Dumping: 5}
 ]
 
+<<<<<<< HEAD
 const Line_Chart = () => {
   return (
     <div className='p-0.5 rounded-lg w-full h-[300px] bg-white'>
         <h1 className='font-semibold m-5'>ALERTS GENERATED</h1>
           <ResponsiveContainer width="100%" height="70%">
             <LineChart data={chartData} margin={{ top: 0, right: 30, left: 0, bottom: 0 }}>
+=======
+const Line_Chart = ({isInGrid = false}) => {
+  return (
+    <div className='p-0.5 mt-5 rounded-lg w-full h-[300px]'>
+          <ResponsiveContainer width="100%" height={`${isInGrid ? '75%' : '150%'}`}>
+            <LineChart data={chartData} margin={{ top: 0, right: 30, left: -30, bottom: 0 }}>
+>>>>>>> fc3b24a (Your message about what you changed)
               <XAxis dataKey="month" stroke="black" />
               <YAxis stroke="black" />
               <Tooltip

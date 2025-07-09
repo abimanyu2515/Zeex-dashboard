@@ -10,7 +10,11 @@ const UserChartFeed = () => {
         
         {/* ANALOG CHART [ALERTS GENERATED] */}
         <div className='col-span-3 rounded-lg shadow-xl/30 shadow-black bg-white max-:w-[360px] w-full h-[300px]'>
+<<<<<<< HEAD
           <Line_Chart />
+=======
+          <Line_Chart isInGrid={true} />
+>>>>>>> fc3b24a (Your message about what you changed)
         </div>
 
       </div>
@@ -18,7 +22,11 @@ const UserChartFeed = () => {
       <div className='grid grid-cols-3 gap-3 mt-2 py-1 max-sm:grid-cols-1  sm:grid-cols-1 xl:grid-cols-3'>
 
         <div className='col-span-2 w-full pt-4 pr-4 rounded-lg shadow-xl/30 shadow-black bg-white '>
+<<<<<<< HEAD
           <Bar_Chart />
+=======
+          <Bar_Chart isInGrid={true} />
+>>>>>>> fc3b24a (Your message about what you changed)
         </div>
 
         <div className='bg-white max-xl:col-span-2 rounded-lg shadow-black shadow-xl/30'>

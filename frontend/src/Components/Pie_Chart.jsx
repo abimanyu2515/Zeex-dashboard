@@ -14,7 +14,11 @@ const Pie_Chart = ({isInGrid = false}) => {
 
   const pieSize = isInGrid ? {innerRadius: 45, outerRadius: 80 } : {innerRadius: 100, outerRadius: 200}
   return (
+<<<<<<< HEAD
         <React.Fragment>
+=======
+      <React.Fragment>
+>>>>>>> fc3b24a (Your message about what you changed)
         <ResponsiveContainer width="100%" height="70%">
           <PieChart>
             <Pie
