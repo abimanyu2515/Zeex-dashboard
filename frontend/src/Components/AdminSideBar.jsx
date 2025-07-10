@@ -15,14 +15,7 @@ import {
       Contact,
 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 import { useState, useEffect } from "react";
->>>>>>> fc3b24a (Your message about what you changed)
-=======
-import { useState, useEffect } from "react";
->>>>>>> ddae233 (Changes is User management)
 
 const navGroups = [
     {
@@ -36,15 +29,7 @@ const navGroups = [
         title: 'Users',
         items: [
             {label: 'Add Users', icon: <UserPlus />, path: '/admin/add-users'},
-<<<<<<< HEAD
-<<<<<<< HEAD
-            {label: 'Users Information', icon: <Contact />, path: '/admin/users-info'},
-=======
             {label: 'Users Information', icon: <Contact />, path: '/admin/users-info', showNotification: true},
->>>>>>> fc3b24a (Your message about what you changed)
-=======
-            {label: 'Users Information', icon: <Contact />, path: '/admin/users-info', showNotification: true},
->>>>>>> ddae233 (Changes is User management)
             {label: 'Users Chart', icon: <ChartPie />, path: '/admin/users-manage'}
         ]
     },
@@ -143,15 +128,7 @@ const AdminSideBar = ({isOpen, setIsOpen}) => {
   }
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div className={`top-0 left-0 flex flex-col h-screen shadow transition-all ease-in-out duration-200 ${isOpen ? 'w-60 bg-white' : 'w-16'}`}>
-=======
     <div className={`top-0 left-0 flex flex-col h-screen shadow max-sm:hidden transition-all ease-in-out duration-200 ${isOpen ? 'w-60 bg-white' : 'w-16'}`}>
->>>>>>> fc3b24a (Your message about what you changed)
-=======
-    <div className={`top-0 left-0 flex flex-col h-screen shadow max-sm:hidden transition-all ease-in-out duration-200 ${isOpen ? 'w-60 bg-white' : 'w-16'}`}>
->>>>>>> ddae233 (Changes is User management)
         <div className={`${isOpen ? 'ml-2 mt-4' : 'my-6 ml-3.5'} transition-all ease-in-out`}>
             <button onClick={() => setIsOpen(!isOpen)} className='p-1 rounded-md hover:cursor-pointer text-red-700 hover:bg-red-700 hover:text-white'>
                 {isOpen ? <PanelLeftClose /> : <PanelLeftOpen />}

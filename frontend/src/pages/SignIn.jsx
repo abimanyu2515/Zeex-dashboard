@@ -1,8 +1,4 @@
 import { useState } from 'react'
-<<<<<<< HEAD
-import '../animateBg.css'
-=======
->>>>>>> fc3b24a (Your message about what you changed)
 import { useNavigate } from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode'
 

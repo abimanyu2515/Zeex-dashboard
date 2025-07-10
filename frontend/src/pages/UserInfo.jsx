@@ -62,8 +62,6 @@ const UserInfo = () => {
   }, [])
 
   return (
-=======
->>>>>>> ddae233 (Changes is User management)
     <div className="m-2.5">
       <div>
         <h1 className="font-bold text-2xl">USERS INFORMATION</h1>
