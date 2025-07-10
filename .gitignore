@@ -29,6 +29,7 @@ dist-ssr
 
 # Ignore Python cache
 __pycache__/
+app/__pycache__
 
 # Ignore Node.js dependencies and Vite deps
 node_modules/
