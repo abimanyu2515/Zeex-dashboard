@@ -1,9 +1,11 @@
 from pydantic import BaseModel, EmailStr
+from datetime import datetime
+from typing import Optional
 
 
 class UserCreate(BaseModel):
     email: EmailStr
-    name:str
+    name: str
     password: str
 
 
@@ -15,10 +17,21 @@ class UserLogin(BaseModel):
 class UserOut(BaseModel):
     id: int
     name: str
-    email: str
+    email: EmailStr
     role: str
+    status: str
+    is_active: bool
+    created_at: datetime
+    
     class Config:
         orm_mode = True
+
+
+class AdminUserCreate(BaseModel):
+    name: str
+    email: EmailStr
+    password: str
+    role: str
 
 
 class Token(BaseModel):
@@ -27,4 +40,8 @@ class Token(BaseModel):
 
 
 class TokenData(BaseModel):
-    username: str | None = None
+    username: Optional[str] = None
+
+
+class StatusUpdate(BaseModel):
+    status: str  # approved, rejected, pending

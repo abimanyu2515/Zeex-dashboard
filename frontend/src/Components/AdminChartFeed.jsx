@@ -10,7 +10,7 @@ const ChartFeed = () => {
         
         {/* ANALOG CHART [ALERTS GENERATED] */}
         <div className='col-span-2 rounded-lg shadow-xl/30 shadow-black bg-white max-:w-[360px] w-full h-[300px]'>
-          <Line_Chart />
+          <Line_Chart isInGrid={true} />
         </div>
 
         {/* PIE CHART [USERS DATA] */}
@@ -24,7 +24,7 @@ const ChartFeed = () => {
 
         {/* BAR CHART [BUILDING ALERTS] */}
         <div className='col-span-2 w-full pt-4 pr-4 rounded-lg shadow-xl/30 shadow-black bg-white '>
-          <Bar_Chart />
+          <Bar_Chart isInGrid={true} />
         </div>
 
         {/* ALERTS TABLE [RECENT ALERTS] */}

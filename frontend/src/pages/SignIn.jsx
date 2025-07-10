@@ -17,7 +17,7 @@ const SignIn = () => {
     e.preventDefault()
     setLoading(true)
 
-    const url = isSignup ? 'http://localhost:8000/signup' : 'http://localhost:8000/token'
+    const url = isSignup ? 'http://localhost:8000/signup' : 'http://localhost:8000/signin'
     const body = isSignup
       ? JSON.stringify({ email, name, password })
       : new URLSearchParams([
