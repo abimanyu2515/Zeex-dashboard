@@ -10,7 +10,6 @@ const ChartFeed = () => {
         
         {/* ANALOG CHART [ALERTS GENERATED] */}
         <div className='col-span-2 rounded-lg shadow-xl/30 shadow-black bg-white max-:w-[360px] w-full h-[300px]'>
-        <h1 className='font-semibold m-5'>ALERTS GENERATED</h1>
           <Line_Chart isInGrid={true} />
         </div>
 

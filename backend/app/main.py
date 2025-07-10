@@ -1,21 +1,17 @@
-<<<<<<< HEAD
-from fastapi import FastAPI, Depends, Path
-=======
 from fastapi import FastAPI, Depends, HTTPException
->>>>>>> fc3b24a (Your message about what you changed)
 from sqlalchemy.orm import Session
 from app import models, schemas, database, auth
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordRequestForm
 from app.jwt_handler import create_access_token
 
-models.Base.metadata.create_all(bind = database.engine)
+models.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = ['*'],
+    allow_origins=['*'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
@@ -30,33 +26,22 @@ def get_db():
 
 
 @app.post('/signup')
-def signup(user: schemas.UserCreate, db: Session=Depends(get_db)):
+def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return auth.create_user(db, user)
 
 
-<<<<<<< HEAD
-@app.post('/token')
-=======
 @app.post('/admin/create-user')
-def admin_create(user: schemas.AdminUserCreate, db: Session=Depends(get_db)):
+def admin_create(user: schemas.AdminUserCreate, db: Session = Depends(get_db), admin = Depends(auth.get_current_admin)):
     return auth.admin_create_user(db, user)
 
 
 @app.post('/signin')
->>>>>>> fc3b24a (Your message about what you changed)
 def login_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
-    user = auth.login_check(db, schemas.UserLogin(email = form_data.username, password = form_data.password))
-    access_token = create_access_token(data={'sub' : str(user.id), 'email' : user.email, 'name' : user.name, "role": user.role})
-    return {'access_token' : access_token, 'token_type' : 'bearer'}
+    user = auth.login_check(db, schemas.UserLogin(email=form_data.username, password=form_data.password))
+    access_token = create_access_token(data={'sub': str(user.id), 'email': user.email, 'name': user.name, "role": user.role})
+    return {'access_token': access_token, 'token_type': 'bearer', 'role': user.role}
 
 
-<<<<<<< HEAD
-@app.get("/protected")
-def read_protected(user=Depends(auth.get_current_user)):
-    return {"message": f"Welcome, {user.name}!"}
-
-
-=======
 @app.get('/admin/get_all_users')
 def get_the_users(db: Session = Depends(get_db), admin = Depends(auth.get_current_user)):
     return db.query(models.User).all()
@@ -78,4 +63,3 @@ def get_pending_users(db: Session=Depends(get_db), admin = Depends(auth.get_curr
 @app.get("/protected")
 def read_protected(user=Depends(auth.get_current_user)):
     return {"message": f"Welcome, {user.name}!"}
->>>>>>> fc3b24a (Your message about what you changed)

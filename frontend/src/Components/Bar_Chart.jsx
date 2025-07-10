@@ -4,74 +4,66 @@ import {
 } from 'recharts'
 
 const barData = [
-    {
-      building: "Clark",
-      Arson: 137,
-      Accident: 96,
-      Dumping: 72
-    },
-    {
-      building: "Parking",
-      Arson: 55,
-      Accident: 28,
-      Dumping: 58
-    },
-    {
-      building: "Student Union",
-      Arson: 109,
-      Accident: 23,
-      Dumping: 34
-    },
-    {
-      building: "ENG",
-      Arson: 133,
-      Accident: 52,
-      Dumping: 43
-    },
-    {
-      building: "CV1",
-      Arson: 81,
-      Accident: 80,
-      Dumping: 112
-    },
-    {
-      building: "CV2",
-      Arson: 66,
-      Accident: 111,
-      Dumping: 27
-    },
-    {
-      building: "Staffroom",
-      Arson: 80,
-      Accident: 47,
-      Dumping: 158
-    },
-  ];
+  {
+    building: "Clark",
+    Arson: 137,
+    Accident: 96,
+    Dumping: 72
+  },
+  {
+    building: "Parking",
+    Arson: 55,
+    Accident: 28,
+    Dumping: 58
+  },
+  {
+    building: "Student Union",
+    Arson: 109,
+    Accident: 23,
+    Dumping: 34
+  },
+  {
+    building: "ENG",
+    Arson: 133,
+    Accident: 52,
+    Dumping: 43
+  },
+  {
+    building: "CV1",
+    Arson: 81,
+    Accident: 80,
+    Dumping: 112
+  },
+  {
+    building: "CV2",
+    Arson: 66,
+    Accident: 111,
+    Dumping: 27
+  },
+  {
+    building: "Staffroom",
+    Arson: 80,
+    Accident: 47,
+    Dumping: 158
+  },
+];
 
-<<<<<<< HEAD
-const Bar_Chart = () => {
+const Bar_Chart = ({ isInGrid = false }) => {
   return (
     <div className='h-[400px]'>
-        <h1 className='font-semibold mb-5 mx-5'>ALERTS BY BUILDINGS</h1>
-        <ResponsiveContainer width='100%' height='80%'>
-=======
-const Bar_Chart = ({isInGrid = false}) => {
-  return (
-    <div className='h-[400px]'>
-        <h1 className={`font-semibold mb-5 mx-5 ${isInGrid ? '' : 'hidden'} `}>ALERTS BY BUILDINGS</h1>
-        <ResponsiveContainer width='100%' height={`${isInGrid ? '80%' : '120%'}`}>
->>>>>>> fc3b24a (Your message about what you changed)
-          <BarChart data={barData}>
-            <CartesianGrid />
-            <XAxis dataKey='building' />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey='Arson' stackId='a' fill='orange' />
-            <Bar dataKey='Accident' stackId='a' fill='red' />
-            <Bar dataKey='Dumping' stackId='a' fill='blue' />
-          </BarChart>
-        </ResponsiveContainer>
+      <h1 className={`font-semibold mb-5 mx-5 ${isInGrid ? '' : 'hidden'}`}>ALERTS BY BUILDINGS</h1>
+      <ResponsiveContainer width='100%' height={`${isInGrid ? '80%' : '120%'}`}>
+        <BarChart data={barData}>
+          <CartesianGrid />
+          <XAxis dataKey='building' />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey='Arson' stackId='a' fill='orange' />
+          <Bar dataKey='Accident' stackId='a' fill='red' />
+          <Bar dataKey='Dumping' stackId='a' fill='blue' />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   )
 }

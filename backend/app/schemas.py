@@ -1,9 +1,11 @@
 from pydantic import BaseModel, EmailStr
+from datetime import datetime
+from typing import Optional
 
 
 class UserCreate(BaseModel):
     email: EmailStr
-    name:str
+    name: str
     password: str
 
 
@@ -15,23 +17,16 @@ class UserLogin(BaseModel):
 class UserOut(BaseModel):
     id: int
     name: str
-<<<<<<< HEAD
-    email: str
-    role: str
-=======
     email: EmailStr
     role: str
     status: str
     is_active: bool
 
-    
->>>>>>> fc3b24a (Your message about what you changed)
+
     class Config:
         orm_mode = True
 
 
-<<<<<<< HEAD
-=======
 class AdminUserCreate(BaseModel):
     name: str
     email: EmailStr
@@ -42,12 +37,14 @@ class AdminUserCreate(BaseModel):
 class Status_update(BaseModel):
     status: str
 
-
->>>>>>> fc3b24a (Your message about what you changed)
 class Token(BaseModel):
     access_token: str
     token_type: str
 
 
 class TokenData(BaseModel):
-    username: str | None = None
+    username: Optional[str] = None
+
+
+class StatusUpdate(BaseModel):
+    status: str  # approved, rejected, pending

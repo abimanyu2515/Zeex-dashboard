@@ -16,9 +16,13 @@ import {
 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { useState, useEffect } from "react";
 >>>>>>> fc3b24a (Your message about what you changed)
+=======
+import { useState, useEffect } from "react";
+>>>>>>> ddae233 (Changes is User management)
 
 const navGroups = [
     {
@@ -33,10 +37,14 @@ const navGroups = [
         items: [
             {label: 'Add Users', icon: <UserPlus />, path: '/admin/add-users'},
 <<<<<<< HEAD
+<<<<<<< HEAD
             {label: 'Users Information', icon: <Contact />, path: '/admin/users-info'},
 =======
             {label: 'Users Information', icon: <Contact />, path: '/admin/users-info', showNotification: true},
 >>>>>>> fc3b24a (Your message about what you changed)
+=======
+            {label: 'Users Information', icon: <Contact />, path: '/admin/users-info', showNotification: true},
+>>>>>>> ddae233 (Changes is User management)
             {label: 'Users Chart', icon: <ChartPie />, path: '/admin/users-manage'}
         ]
     },
@@ -72,8 +80,6 @@ const AdminSideBar = ({isOpen, setIsOpen}) => {
   const user = JSON.parse(localStorage.getItem('user'))
   const navigate = useNavigate()
   const location = useLocation()
-<<<<<<< HEAD
-=======
   const [hasPendingUsers, setHasPendingUsers] = useState(false)
   const token = localStorage.getItem('token')
 
@@ -105,33 +111,23 @@ const AdminSideBar = ({isOpen, setIsOpen}) => {
     
     return () => clearInterval(interval)
   }, [token])
->>>>>>> fc3b24a (Your message about what you changed)
 
   const SidebarSection = ({title, items}) => {
     return(
         <div>
         {isOpen && <h3 className="my-2 text-orange-600">{title}</h3>}
-<<<<<<< HEAD
-        {items.map(({icon, label, path}) =>{
-            const isActive = location.pathname === path
-            return(
-                <div className={`flex items-center gap-3 cursor-pointer p-2 my-2 rounded-md text-sm text-blue-700 hover:bg-blue-100 hover:font-bold transition-colors duration-75 ${isActive ? 'bg-blue-100 font-semibold' : ''} ${!isOpen ? 'justify-center' : ''}`}
-=======
         {items.map(({icon, label, path, showNotification}) =>{
             const isActive = location.pathname === path
             const showDot = showNotification && hasPendingUsers
             
             return(
                 <div className={`flex items-center gap-3 cursor-pointer p-2 my-2 rounded-md text-sm text-blue-700 hover:bg-blue-100 hover:font-bold transition-colors duration-75 ${isActive ? 'bg-blue-100 font-semibold' : ''} ${!isOpen ? 'justify-center' : ''} relative`}
->>>>>>> fc3b24a (Your message about what you changed)
                 key={path}
                 title={!isOpen ? label : ''}
                 onClick={() => navigate(path)}
                 >
                         {icon}
                         {isOpen && <span>{label}</span>}
-<<<<<<< HEAD
-=======
                         
                         {/* Notification dot */}
                         {showDot && (
@@ -139,7 +135,6 @@ const AdminSideBar = ({isOpen, setIsOpen}) => {
                                 <div className="w-2 h-2 bg-red-500 rounded-full animate-ping absolute"></div>
                             </div>
                         )}
->>>>>>> fc3b24a (Your message about what you changed)
                 </div>
             )
         })}
@@ -149,10 +144,14 @@ const AdminSideBar = ({isOpen, setIsOpen}) => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div className={`top-0 left-0 flex flex-col h-screen shadow transition-all ease-in-out duration-200 ${isOpen ? 'w-60 bg-white' : 'w-16'}`}>
 =======
     <div className={`top-0 left-0 flex flex-col h-screen shadow max-sm:hidden transition-all ease-in-out duration-200 ${isOpen ? 'w-60 bg-white' : 'w-16'}`}>
 >>>>>>> fc3b24a (Your message about what you changed)
+=======
+    <div className={`top-0 left-0 flex flex-col h-screen shadow max-sm:hidden transition-all ease-in-out duration-200 ${isOpen ? 'w-60 bg-white' : 'w-16'}`}>
+>>>>>>> ddae233 (Changes is User management)
         <div className={`${isOpen ? 'ml-2 mt-4' : 'my-6 ml-3.5'} transition-all ease-in-out`}>
             <button onClick={() => setIsOpen(!isOpen)} className='p-1 rounded-md hover:cursor-pointer text-red-700 hover:bg-red-700 hover:text-white'>
                 {isOpen ? <PanelLeftClose /> : <PanelLeftOpen />}

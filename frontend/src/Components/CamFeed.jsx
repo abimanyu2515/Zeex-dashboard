@@ -66,11 +66,7 @@ import React, { useEffect, useState } from 'react'
 
         {show1 &&(
           <div className="fixed inset-0 bg-black/75 flex z-60 items-center justify-center">
-<<<<<<< HEAD
-            <div className='bg-white p-6 rounded-lg shadow-lg relative'>
-=======
             <div className='bg-white sm:p-6 max-sm:p-2 rounded-lg shadow-lg relative'>
->>>>>>> fc3b24a (Your message about what you changed)
               <button className='absolute top-2 right-5 text-red-700 text-3xl cursor-pointer hover:text-black' onClick={() => setShow1(false)}>
                 &times;
               </button>

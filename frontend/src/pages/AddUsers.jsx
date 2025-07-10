@@ -1,26 +1,10 @@
-<<<<<<< HEAD
 import {useState} from "react"
-=======
 import {useEffect, useState} from "react"
 import { X } from 'lucide-react'
->>>>>>> fc3b24a (Your message about what you changed)
 import SimpleSwitch from "../Components/SimpleSwitch"
 
 const AddUsers = () => {
   const [enabled, setEnabled] = useState(false)
-<<<<<<< HEAD
-  return (
-    <div className="m-3.5">
-      <div>
-        <h1 className="font-bold text-2xl">CREATE USER</h1>
-        <h3 className="mt-3">Add a new user</h3>
-      </div>
-
-      <div className="flex mt-10 gap-5 items-center">
-        <input type="text" className="border p-2.5 w-full text-sm" placeholder="Username" />
-        <input type="email" className="border p-2.5 w-full text-sm" placeholder="Email" />
-        <input type="password" className="border p-2.5 w-full text-sm" placeholder="Password" />
-=======
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -97,24 +81,17 @@ const AddUsers = () => {
       </div>
 
       <div className="flex mt-10 gap-5 items-center">
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="border p-2.5 w-full text-sm" placeholder="Name" />
+        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="border p-2.5 w-full text-sm" placeholder="Username" />
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="border p-2.5 w-full text-sm" placeholder="Email" />
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="border p-2.5 w-full text-sm" placeholder="Password" />
->>>>>>> fc3b24a (Your message about what you changed)
         <SimpleSwitch enabled={enabled} setEnabled={setEnabled} /><span>Admin</span>
       </div>
 
       <div className="justify-self-center mt-10">
-<<<<<<< HEAD
-        <button className="bg-green-600 text-white text-sm p-2 rounded-sm cursor-pointer">
-          CREATE NEW USER
-        </button>
-=======
         <button type="submit" onClick={handleCreateUser} className="bg-green-600 text-white text-sm p-2 rounded-sm cursor-pointer">
           CREATE NEW USER
         </button><br />
         <br />
->>>>>>> fc3b24a (Your message about what you changed)
       </div>
     </div>
   )

@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-
-const UserInfo = () => {
-  return (
-    <div>UserInfo</div>
-=======
 import { useEffect, useState } from "react"
 
 const UserInfo = () => {
@@ -68,6 +62,8 @@ const UserInfo = () => {
   }, [])
 
   return (
+=======
+>>>>>>> ddae233 (Changes is User management)
     <div className="m-2.5">
       <div>
         <h1 className="font-bold text-2xl">USERS INFORMATION</h1>
@@ -138,7 +134,6 @@ const UserInfo = () => {
         </table>
       </div>
     </div>
->>>>>>> fc3b24a (Your message about what you changed)
   )
 }
 
