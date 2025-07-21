@@ -79,7 +79,7 @@ const AddUsers = () => {
         {toastMessage && <Toast type={toastType} message={toastMessage} onClose={() => setToastMessage('')} />}
       </div>
 
-      <div className="flex mt-10 gap-5 items-center">
+      <div className="flex max-lg:flex-col mt-10 gap-5 items-center">
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="border p-2.5 w-full text-sm" placeholder="Username" />
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="border p-2.5 w-full text-sm" placeholder="Email" />
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="border p-2.5 w-full text-sm" placeholder="Password" />

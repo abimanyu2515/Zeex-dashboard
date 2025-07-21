@@ -8,7 +8,6 @@ import UserDashboard from './pages/UserDashboard'
 import AdminDashboard from './pages/AdminDashboard'
 import NotAuthorized from './pages/NotAuthorized'
 import AddUsers from './pages/AddUsers'
-import ContactInfo from './pages/UserInfo'
 import UsersChart from './pages/UsersChart'
 import CamDirectory from './pages/CamDirectory'
 import VideoFiles from './pages/VideoFiles'
@@ -20,10 +19,14 @@ import BuildingAlerts from './pages/BuildingAlerts'
 import GeoAlerts from './pages/GeoAlerts'
 import UserInfo from './pages/UserInfo'
 import UserLayout from './layouts/UserLayout'
+import ResetPassword from './pages/ResetPassword'
+import ForgotPassword from './pages/ForgotPassword'
 function App() {
   return (
     <Routes>
       <Route path="/" element={<SignIn />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
 
       <Route path="/admin" element={
         <ProtectRoute allowedRoles={['admin']}>

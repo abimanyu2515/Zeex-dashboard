@@ -12,7 +12,7 @@ const COLORS = ['#FFBB28', '#FF6B6B', '#82ca9d'];
 
 const Pie_Chart = ({isInGrid = false}) => {
 
-  const pieSize = isInGrid ? {innerRadius: 45, outerRadius: 80 } : {innerRadius: 100, outerRadius: 200}
+  const pieSize = isInGrid ? {innerRadius: 45, outerRadius: 80 } : {innerRadius: 100, outerRadius: 180}
   return (
       <React.Fragment>
         <ResponsiveContainer width="100%" height="70%">

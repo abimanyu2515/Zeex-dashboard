@@ -5,7 +5,7 @@ import Header from "../Components/Header"
 
 
 const AdminLayout = () => {
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
   return (
     <div className="flex">
         <div className="fixed h-screen z-50"> 

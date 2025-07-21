@@ -53,7 +53,7 @@ const Bar_Chart = ({ isInGrid = false }) => {
     <div className='h-[400px]'>
       <h1 className={`font-semibold mb-5 mx-5 ${isInGrid ? '' : 'hidden'}`}>ALERTS BY BUILDINGS</h1>
       <ResponsiveContainer width='100%' height={`${isInGrid ? '80%' : '120%'}`}>
-        <BarChart data={barData}>
+        <BarChart data={barData}  margin={{ top: 0, right: 0, left: -15, bottom: 0 }}>
           <CartesianGrid />
           <XAxis dataKey='building' />
           <YAxis />

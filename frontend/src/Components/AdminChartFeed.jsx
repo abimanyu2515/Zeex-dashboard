@@ -9,7 +9,7 @@ const ChartFeed = () => {
       <div className='grid m-0 py-1 gap-3 max-sm:grid-cols-1 max-sm:p-0 sm:grid-cols-1 lg:grid-cols-3'>
         
         {/* ANALOG CHART [ALERTS GENERATED] */}
-        <div className='col-span-2 rounded-lg shadow-xl/30 shadow-black bg-white max-:w-[360px] w-full h-[300px]'>
+        <div className='col-span-2 rounded-lg shadow-xl/30 border-l border-gray-400 shadow-black bg-white max-:w-[360px] w-full h-[300px]'>
           <Line_Chart isInGrid={true} />
         </div>
 
@@ -23,7 +23,7 @@ const ChartFeed = () => {
       <div className='grid grid-cols-3 gap-3 mt-2 py-1 max-sm:grid-cols-1  sm:grid-cols-1 xl:grid-cols-3'>
 
         {/* BAR CHART [BUILDING ALERTS] */}
-        <div className='col-span-2 w-full pt-4 pr-4 rounded-lg shadow-xl/30 shadow-black bg-white '>
+        <div className='col-span-2 w-full pt-4 pr-4 rounded-lg border-l border-gray-400 shadow-xl/30 shadow-black bg-white '>
           <Bar_Chart isInGrid={true} />
         </div>
 

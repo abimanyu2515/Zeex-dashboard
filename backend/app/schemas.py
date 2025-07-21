@@ -1,5 +1,4 @@
 from pydantic import BaseModel, EmailStr
-from datetime import datetime
 from typing import Optional
 
 
@@ -37,6 +36,16 @@ class AdminUserCreate(BaseModel):
 class Status_update(BaseModel):
     status: str
 
+
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr
+
+
+class ResetPasswordRequest(BaseModel):
+    token: str
+    new_password: str
+
+
 class Token(BaseModel):
     access_token: str
     token_type: str
@@ -47,4 +56,4 @@ class TokenData(BaseModel):
 
 
 class StatusUpdate(BaseModel):
-    status: str  # approved, rejected, pending
+    status: str  # approved / rejected / pending

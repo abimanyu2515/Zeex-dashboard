@@ -53,7 +53,7 @@ const UserInfo = () => {
     switch (status) {
       case 'approved': return 'text-white bg-green-600'
       case 'rejected': return 'text-white bg-red-600'
-      case 'pending': return 'text-white bg-gray-600'
+      case 'pending': return 'text-white bg-gray-500'
     }
   }
 
@@ -73,12 +73,12 @@ const UserInfo = () => {
         <table className="w-full border">
           <thead>
             <tr className="bg-blue-900 text-white text-center">
-              <td className="p-3">ID</td>
-              <td className="p-3">NAME</td>
-              <td className="p-3">EMAIL</td>
-              <td className="p-3">STATUS</td>
-              <td className="p-3">ROLE</td>
-              <td className="p-3">ACTIONS</td>
+              <td className="p-3 border-r">ID</td>
+              <td className="p-3 border-x">NAME</td>
+              <td className="p-3 border-x">EMAIL</td>
+              <td className="p-3 border-x">STATUS</td>
+              <td className="p-3 border-x">ROLE</td>
+              <td className="p-3 border-l">ACTIONS</td>
             </tr>
           </thead>
 
@@ -86,12 +86,12 @@ const UserInfo = () => {
             {users.map((user) => {
               return(
               <tr key={user.id} className="text-center bg-blue-100 border-b">
-                <td className="p-3">{user.id}</td>
-                <td className="p-3">{user.name}</td>
-                <td className="p-3">{user.email}</td>
-                <td className={`p-3 capitalize ${setStatusColor(user.status)}`}>{user.status}</td>
-                <td className="bg- capitalize">{user.role}</td>
-                <td className="p-3">
+                <td className="p-3 border-x">{user.id}</td>
+                <td className="p-3 border-x">{user.name}</td>
+                <td className="p-3 border-x">{user.email}</td>
+                <td className={`p-3 border-x capitalize ${setStatusColor(user.status)}`}>{user.status}</td>
+                <td className="bg- capitalize p-3 border-x">{user.role}</td>
+                <td className="p-3 border-x">
                   {user.status === 'pending' && (
                     <div className="flex gap-2 justify-center">
                       <button

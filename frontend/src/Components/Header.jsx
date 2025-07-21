@@ -23,7 +23,7 @@ const Header = () => {
                 <input className="border-1 rounded-sm text-sm p-2" type="text" placeholder="Search" />
             </div>
 
-            <div>
+            <div className="max-lg:mt-9.5">
                 <Menu as='div' className='relative inline-block text-left'>
                     <MenuButton className="relative rounded-3xl hover:bg-gray-400 hover:cursor-pointer">
                         <img src={avatar} width={40} alt="" />

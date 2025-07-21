@@ -4,23 +4,11 @@ sqlalchemy
 psycopg2-binary
 passlib[bcrypt]
 python-jose[cryptography]
-<<<<<<< HEAD
-<<<<<<< HEAD
+pyjwt
+python-dotenv
+pydantic[email]
+python-multipart
+fastapi[standard]
 python-dotenv
 PyJWT
-=======
-=======
->>>>>>> fc3b24a (Your message about what you changed)
-pip install pyjwt
-python-dotenv
-pip install pydantic[email]
-pip install python-multipart
-pip install "fastapi[standard]"
-<<<<<<< HEAD
->>>>>>> 270f5d527c57b9e272d9b28da5a742ff9f3490ab
-=======
-=======
-python-dotenv
-PyJWT
->>>>>>> 92d35e0 (Update: sidebar, admin and user routes, sidebar sections)
->>>>>>> fc3b24a (Your message about what you changed)
+pydantic

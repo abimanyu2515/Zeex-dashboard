@@ -21,8 +21,8 @@ const Line_Chart = ({isInGrid=false}) => {
   return (
     <div className='p-0.5 rounded-lg w-full h-[300px]'>
         <h1 className={`font-semibold m-5 ${isInGrid ? '' : 'hidden'}`}>ALERTS GENERATED</h1>
-          <ResponsiveContainer width="100%" height={`${isInGrid ? '70%' : '150%'}`}>
-            <LineChart data={chartData} margin={{ top: 0, right: 30, left: -10, bottom: 0 }}>
+          <ResponsiveContainer width="100%" height={`${isInGrid ? '75%' : '150%'}`}>
+            <LineChart data={chartData} margin={{ top: 0, right: 30, left: -30, bottom: 0 }}>
               <XAxis dataKey="month" stroke="black" />
               <YAxis stroke="black" />
               <Tooltip

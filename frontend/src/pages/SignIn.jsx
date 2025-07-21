@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode'
 
 const SignIn = () => {
@@ -25,6 +25,10 @@ const SignIn = () => {
         ])
 
     try {
+      if (password.length < 8){
+      setMessage('Password must contain 8 characters')
+      return
+      }
       const res = await fetch(url, {
         method: 'POST',
         headers: {
@@ -85,7 +89,7 @@ const SignIn = () => {
           </div>
         </div>
 
-        {message && <p className="text-center text-md font-semibold text-red-600 my-5">{message.toUpperCase()}</p>}
+        {message && <p className="text-center text-md text-red-600 my-5">{message.toUpperCase()}</p>}
 
         <div className='mt-4'>
           <h4 className='mt-0 mb-2'>Email</h4>
@@ -121,7 +125,7 @@ const SignIn = () => {
             type='button'
             className='text-blue-500 right-0 hover:text-blue-700 hover:cursor-pointer'
           >
-            <span>{isSignup ? '' : 'Forgot Password ?'}</span>
+            <Link to='/forgot-password'>{isSignup ? '' : 'Forgot Password ?'}</Link>
           </button>
         </div>
         <input
