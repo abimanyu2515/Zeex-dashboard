@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-  const CamFeed = () => {
+  const CamFeed = ({inDashboard = true}) => {
   const [show1, setShow1] = useState(false)
   const [show2, setShow2] = useState(false)
   const [show3, setShow3] = useState(false)
@@ -19,8 +19,8 @@ import React, { useEffect, useState } from 'react'
 
   return (
     <React.Fragment>
-          <div className='bg-white m-0 p-0 rounded-lg text-black shadow-xl/30 shadow-black justify-items-center grid max-sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4'>
-            <div className='my-2 mx-5 p-1.5 w-full xl:w-60'>
+          <div className={`m-0 p-0 rounded-lg text-black justify-items-center grid max-sm:grid-cols-1 lg:grid-cols-2 ${ inDashboard ? 'xl:grid-cols-4 bg-white shadow-xl/30 shadow-black' : 'xl:grid-cols-3 mt-10 '}`}>
+            <div className={`my-2 mx-5 p-1.5 w-full ${ inDashboard ? 'xl:w-60' : 'xl:w-[450px] border' }`}>
               <button className='mt-1' onClick={() => setShow1(true)}>
                 <video className='cursor-pointer' src={status[0] ? "https://media.istockphoto.com/id/2084473784/video/home-security-camera-footage-of-package-delivery.mp4?s=mp4-640x640-is&k=20&c=-6aWbhiUCl7ihOwdCzvHJRqVTUSCxyiWA3APppWtxys=" : "https://media.istockphoto.com/id/966290166/video/tv-static-loop.mp4?s=mp4-640x640-is&k=20&c=75F9J6akH8wyUkdWN7ITfzNBFxia_qn89P0YFqJJqmU="}
                 loop
@@ -30,8 +30,7 @@ import React, { useEffect, useState } from 'react'
               </button>
             </div>
             
-            <div className="my-2 mx-5 p-1.5 w-full xl:w-60">
-              
+            <div className={`my-2 mx-5 p-1.5 w-full ${ inDashboard ? 'xl:w-60' : 'xl:w-[450px] border' }`}>
               <button className='mt-1' onClick={() => setShow2(true)}>
                 <video className='cursor-pointer' src={status[1] ? "https://media.istockphoto.com/id/1214444647/video/person-stealing-bicycle-from-garage-surveillance-camera-view.mp4?s=mp4-640x640-is&k=20&c=FvJ8hEGI5rXd-NzPj3OMSNKKgfedh8qneTakQ-c3gG4=" : "https://media.istockphoto.com/id/966290166/video/tv-static-loop.mp4?s=mp4-640x640-is&k=20&c=75F9J6akH8wyUkdWN7ITfzNBFxia_qn89P0YFqJJqmU="}
                 loop
@@ -41,8 +40,7 @@ import React, { useEffect, useState } from 'react'
               </button>
             </div>
 
-            <div className="my-2 mx-5 p-1.5 w-full xl:w-60">
-
+            <div className={`my-2 mx-5 p-1.5 w-full ${ inDashboard ? 'xl:w-60' : 'xl:w-[450px] border' }`}>
               <button className='mt-1' onClick={() => setShow3(true)}>
                 <video className='cursor-pointer' src={status[2] ? "https://media.istockphoto.com/id/805202668/video/the-surveillance-camera-captured-as-a-thief-breaks-the-door.mp4?s=mp4-640x640-is&k=20&c=yc9N_ABhUMLA7pgoV8k-K673bmgCu2RfXElxzcijpFE=" : "https://media.istockphoto.com/id/966290166/video/tv-static-loop.mp4?s=mp4-640x640-is&k=20&c=75F9J6akH8wyUkdWN7ITfzNBFxia_qn89P0YFqJJqmU="}
                 loop
@@ -52,8 +50,7 @@ import React, { useEffect, useState } from 'react'
               </button>
             </div>
 
-            <div className="my-2 mx-5 p-1.5 w-full xl:w-60">
-              
+            <div className={`my-2 mx-5 p-1.5 w-full ${ inDashboard ? 'xl:w-60' : 'xl:w-[450px] border' }`}>              
               <button className='mt-1' onClick={() => setShow4(true)}>
                 <video className='cursor-pointer' src={status[3] ? "https://media.istockphoto.com/id/1405617072/video/the-man-turns-off-the-surveillance-camera.mp4?s=mp4-640x640-is&k=20&c=IsUTeJHDO3EJsN76Is4zK2jLuWIls5OGn-eUbSxSK-c=" : "https://media.istockphoto.com/id/966290166/video/tv-static-loop.mp4?s=mp4-640x640-is&k=20&c=75F9J6akH8wyUkdWN7ITfzNBFxia_qn89P0YFqJJqmU="}
                 loop
@@ -62,7 +59,63 @@ import React, { useEffect, useState } from 'react'
                 />
               </button>
             </div>
-        </div>
+
+        {
+          !inDashboard && (
+            <>
+              <div className={`my-2 mx-5 p-1.5 w-full ${ inDashboard ? 'xl:w-60' : 'xl:w-[450px] border' }`}>
+              <button className='mt-1' onClick={() => setShow2(true)}>
+                <video className='cursor-pointer' src={status[1] ? "https://media.istockphoto.com/id/1214444647/video/person-stealing-bicycle-from-garage-surveillance-camera-view.mp4?s=mp4-640x640-is&k=20&c=FvJ8hEGI5rXd-NzPj3OMSNKKgfedh8qneTakQ-c3gG4=" : "https://media.istockphoto.com/id/966290166/video/tv-static-loop.mp4?s=mp4-640x640-is&k=20&c=75F9J6akH8wyUkdWN7ITfzNBFxia_qn89P0YFqJJqmU="}
+                loop
+                autoPlay
+                muted
+                />
+              </button>
+            </div>
+
+            <div className={`my-2 mx-5 p-1.5 w-full ${ inDashboard ? 'xl:w-60' : 'xl:w-[450px] border' }`}>
+              <button className='mt-1' onClick={() => setShow2(true)}>
+                <video className='cursor-pointer' src={status[1] ? "https://media.istockphoto.com/id/1214444647/video/person-stealing-bicycle-from-garage-surveillance-camera-view.mp4?s=mp4-640x640-is&k=20&c=FvJ8hEGI5rXd-NzPj3OMSNKKgfedh8qneTakQ-c3gG4=" : "https://media.istockphoto.com/id/966290166/video/tv-static-loop.mp4?s=mp4-640x640-is&k=20&c=75F9J6akH8wyUkdWN7ITfzNBFxia_qn89P0YFqJJqmU="}
+                loop
+                autoPlay
+                muted
+                />
+              </button>
+            </div>
+
+            <div className={`my-2 mx-5 p-1.5 w-full ${ inDashboard ? 'xl:w-60' : 'xl:w-[450px] border' }`}>
+              <button className='mt-1' onClick={() => setShow2(true)}>
+                <video className='cursor-pointer' src={status[1] ? "https://media.istockphoto.com/id/1214444647/video/person-stealing-bicycle-from-garage-surveillance-camera-view.mp4?s=mp4-640x640-is&k=20&c=FvJ8hEGI5rXd-NzPj3OMSNKKgfedh8qneTakQ-c3gG4=" : "https://media.istockphoto.com/id/966290166/video/tv-static-loop.mp4?s=mp4-640x640-is&k=20&c=75F9J6akH8wyUkdWN7ITfzNBFxia_qn89P0YFqJJqmU="}
+                loop
+                autoPlay
+                muted
+                />
+              </button>
+            </div>
+
+            <div className={`my-2 mx-5 p-1.5 w-full ${ inDashboard ? 'xl:w-60' : 'xl:w-[450px] border' }`}>
+              <button className='mt-1' onClick={() => setShow2(true)}>
+                <video className='cursor-pointer' src={status[1] ? "https://media.istockphoto.com/id/1214444647/video/person-stealing-bicycle-from-garage-surveillance-camera-view.mp4?s=mp4-640x640-is&k=20&c=FvJ8hEGI5rXd-NzPj3OMSNKKgfedh8qneTakQ-c3gG4=" : "https://media.istockphoto.com/id/966290166/video/tv-static-loop.mp4?s=mp4-640x640-is&k=20&c=75F9J6akH8wyUkdWN7ITfzNBFxia_qn89P0YFqJJqmU="}
+                loop
+                autoPlay
+                muted
+                />
+              </button>
+            </div>
+            
+            <div className={`my-2 mx-5 p-1.5 w-full ${ inDashboard ? 'xl:w-60' : 'xl:w-[450px] border' }`}>
+              <button className='mt-1' onClick={() => setShow2(true)}>
+                <video className='cursor-pointer' src={status[1] ? "https://media.istockphoto.com/id/1214444647/video/person-stealing-bicycle-from-garage-surveillance-camera-view.mp4?s=mp4-640x640-is&k=20&c=FvJ8hEGI5rXd-NzPj3OMSNKKgfedh8qneTakQ-c3gG4=" : "https://media.istockphoto.com/id/966290166/video/tv-static-loop.mp4?s=mp4-640x640-is&k=20&c=75F9J6akH8wyUkdWN7ITfzNBFxia_qn89P0YFqJJqmU="}
+                loop
+                autoPlay
+                muted
+                />
+              </button>
+            </div>
+            </>
+          )
+        }
+      </div>
 
         {show1 &&(
           <div className="fixed inset-0 bg-black/75 flex z-60 items-center justify-center">

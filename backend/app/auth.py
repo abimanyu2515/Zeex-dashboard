@@ -5,7 +5,7 @@ from fastapi.security import OAuth2PasswordBearer
 import jwt
 from jwt.exceptions import InvalidTokenError
 from . import models, schemas, database, config
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 import secrets
 import smtplib
 from email.mime.text import MIMEText
@@ -87,7 +87,7 @@ def admin_create_user(db: Session, user: schemas.AdminUserCreate):
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     try:
         payload = jwt.decode(token, config.SECRET_KEY, algorithms=[config.ALGORITHM])
-        user_id: str = payload.get("sub")
+        user_id = payload.get("sub")
         if user_id is None:
             raise HTTPException(status_code=401, detail="Invalid token")
     except InvalidTokenError:
@@ -108,7 +108,7 @@ def get_current_admin(current_user: models.User = Depends(get_current_user)):
 def update_user_status(db: Session, user_id: int, status: str):
     db_user = db.query(models.User).filter(models.User.id == user_id).first()
     if not db_user:
-        raise HTTPException(status_code=404, detail='User doesnot exists')
+        raise HTTPException(status_code=404, detail='User does not exists')
  
     db_user.status = status
     db_user.is_active = status == "approved"
@@ -182,19 +182,15 @@ def create_reset_token(db: Session, user_id: int):
     
     return token
 
-import traceback
-
 def request_pass_reset(db: Session, email: str):
-    print(f"📩 Called with email: {email}")
+    print(f"Called with email: {email}")
     try:
         user = db.query(models.User).filter(models.User.email == email).first()
-        print(f"👤 Found user: {user}")
 
         if not user:
             return {"message": "If this email exists, a reset link will be sent"}
 
         token = create_reset_token(db, user.id)
-        print(f"🔐 Token created: {token}")
 
         if send_reset_email(email, token):
             return {"message": "Reset email sent"}
@@ -202,7 +198,7 @@ def request_pass_reset(db: Session, email: str):
             raise HTTPException(status_code=500, detail="Failed to send email")
 
     except Exception as e:
-        print("❌ Exception:", e)
+        print("Exception:", e)
         traceback.print_exc()
         raise HTTPException(status_code=500, detail="Internal server error")
 

@@ -31,7 +31,7 @@ def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 
 @app.post('/admin/create-user')
-def admin_create(user: schemas.AdminUserCreate, db: Session = Depends(get_db), admin = Depends(auth.get_current_admin)):
+def admin_create(user: schemas.AdminUserCreate, db: Session = Depends(get_db)):
     return auth.admin_create_user(db, user)
 
 
@@ -43,12 +43,12 @@ def login_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Ses
 
 
 @app.get('/admin/get_all_users')
-def get_the_users(db: Session = Depends(get_db), admin = Depends(auth.get_current_user)):
+def get_the_users(db: Session = Depends(get_db)):
     return db.query(models.User).all()
 
 
 @app.put('/admin/update/{user_id}')
-def update_pending_users(user_id: int, status: str, db: Session = Depends(get_db), admin =  Depends(auth.get_current_admin)):
+def update_pending_users(user_id: int, status: str, db: Session = Depends(get_db)):
     if status not in ['approved', 'pending', 'rejected']:
         raise HTTPException(status_code=400, detail='invlaid status')
     user = auth.update_user_status(db, user_id, status)
@@ -56,7 +56,7 @@ def update_pending_users(user_id: int, status: str, db: Session = Depends(get_db
 
 
 @app.get('/admin/pending-users')
-def get_pending_users(db: Session=Depends(get_db), admin = Depends(auth.get_current_admin)):    
+def get_pending_users(db: Session=Depends(get_db)):    
     return db.query(models.User).filter(models.User.status == 'pending').all()
 
 
@@ -72,6 +72,7 @@ def forgot_password(request: schemas.ForgotPasswordRequest, db: Session = Depend
 @app.post('/reset-password')
 def reset_password(request: schemas.ResetPasswordRequest, db: Session = Depends(get_db)):
     return auth.reset_password(db, request.token, request.new_password)
+
 
 @app.get('/verify-reset-token/{token}')
 def verify_token(token: str, db: Session = Depends(get_db)):
